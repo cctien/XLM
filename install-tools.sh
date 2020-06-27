@@ -60,17 +60,17 @@ if [ ! -d $TOOLS_PATH/wikiextractor ]; then
     git clone https://github.com/attardi/wikiextractor.git
 fi
 
-# # Chinese segmenter
-# if ! ls $TOOLS_PATH/stanford-segmenter-* 1> /dev/null 2>&1; then
-#   echo "Stanford segmenter not found at $TOOLS_PATH/stanford-segmenter-*"
-#   echo "Please install Stanford segmenter in $TOOLS_PATH"
-#   exit 1
-# fi
-# 
-# # Thai tokenizer
-# if ! python -c 'import pkgutil; exit(not pkgutil.find_loader("pythainlp"))'; then
-#   echo "pythainlp package not found in python"
-#   echo "Please install pythainlp (pip install pythainlp)"
-#   exit 1
-# fi
-# 
+# Chinese segmenter
+if ! ls $TOOLS_PATH/stanford-segmenter-* 1> /dev/null 2>&1; then
+  echo "Stanford segmenter not found at $TOOLS_PATH/stanford-segmenter-*"
+  echo "Please install Stanford segmenter in $TOOLS_PATH"
+  exit 1
+fi
+
+# Thai tokenizer
+if ! python -c 'import pkgutil; exit(not pkgutil.find_loader("pythainlp"))'; then
+  echo "pythainlp package not found in python"
+  echo "Please install pythainlp (pip install pythainlp)"
+  exit 1
+fi
+
